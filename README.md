@@ -1,2 +1,2 @@
 # cs471
-Capstone 1
+Senior Capstone 1 UAF
