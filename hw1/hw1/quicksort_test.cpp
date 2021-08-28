@@ -12,6 +12,7 @@
 #include "doctest.h"
 
 //Includes for test program
+#include "quicksort.h"
 #include <iostream>
 #include <string>
 
