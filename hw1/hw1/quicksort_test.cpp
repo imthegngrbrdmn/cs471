@@ -19,6 +19,16 @@
 //Make output easier.
 const std::string test_suite_name = "cs471-HW1";
 
+TEST_CASE("Sorting")
+{
+	SUBCASE("Special Cases")
+	{
+		INFO("Empty Vector");
+		std::vector<int> emptyVect{};
+		REQUIRE(emptyVect.empty());
+	}
+}
+
 //Run tests & show results
 int main(int argc, char** argv)
 {

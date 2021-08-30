@@ -11,11 +11,10 @@
 
 #include <algorithm>	//std::swap
 #include <cstddef>		//std::size_t
+#include <vector>
 
-template <typename A>
-void quicksort(A data, std::size_t lo, std::size_t hi);
+void quicksort(std::vector<int> data, std::size_t lo, std::size_t hi);
 
-template <typename A>
-void partition(A data, std::size_t lo, std::size_t hi);
+void partition(std::vector<int> data, std::size_t lo, std::size_t hi);
 
 #endif //QUICKSORT_H
