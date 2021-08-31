@@ -15,17 +15,55 @@
 #include "quicksort.h"
 #include <iostream>
 #include <string>
+#include <cstddef>
 
 //Make output easier.
 const std::string test_suite_name = "cs471-HW1";
 
-TEST_CASE("Sorting")
+TEST_CASE("Sorted")
 {
-	SUBCASE("Special Cases")
+	SUBCASE("Empty")
 	{
 		INFO("Empty Vector");
 		std::vector<int> emptyVect{};
+		quicksort(emptyVect, 0, 0);
 		REQUIRE(emptyVect.empty());
+	}
+	SUBCASE("Single Element")
+	{
+		std::vector<int> single{1};
+		quicksort(single, 0, 0);
+		INFO("Vector has length 1");
+		REQUIRE(single.size()==1);
+		INFO("Vector contains the same element");
+		REQUIRE(single[0]==1);
+	}
+	SUBCASE("Two Elements")
+	{
+		std::vector<int> positiveSorted{1,2};
+		std::vector<int> untouchedCopy(positiveSorted);
+		quicksort(positiveSorted, 0, 1);
+		INFO("Positive vector has length 2");
+		REQUIRE(positiveSorted.size()==2);
+		INFO("Positive vector contains the same elements & order");
+		REQUIRE(positiveSorted==untouchedCopy);
+		std::vector<int> signedSorted{-1,2};
+		untouchedCopy=signedSorted;
+		quicksort(signedSorted, 0, 1);
+		INFO("Mixed vector has length 2");
+		REQUIRE(signedSorted.size()==2);
+		INFO("Mixed vector contains the same elements & order");
+		REQUIRE(signedSorted==untouchedCopy);
+	}
+	SUBCASE("More Elements")
+	{
+		std::vector<int> sorted{-700,-7,-6,0,1,2,38,100};
+		std::vector<int> untouchedCopy(sorted);
+		quicksort(sorted, 0, sorted.size()-1);
+		INFO("Vector has same length");
+		REQUIRE(sorted.size()==untouchedCopy.size());
+		INFO("Vector contains the same elements");
+		REQUIRE(sorted==untouchedCopy);
 	}
 }
 
