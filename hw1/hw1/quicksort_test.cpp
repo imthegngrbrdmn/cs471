@@ -15,7 +15,7 @@
 #include "quicksort.h"
 #include <iostream>
 #include <string>
-#include <cstddef>
+#include <algorithm>
 
 //Make output easier.
 const std::string test_suite_name = "cs471-HW1";
@@ -59,11 +59,26 @@ TEST_CASE("Sorted")
 	{
 		std::vector<int> sorted{-700,-7,-6,0,1,2,38,100};
 		std::vector<int> untouchedCopy(sorted);
-		quicksort(sorted, 0, sorted.size()-1);
+		quicksort(sorted, 0, ((int)sorted.size())-1);
 		INFO("Vector has same length");
 		REQUIRE(sorted.size()==untouchedCopy.size());
 		INFO("Vector contains the same elements");
 		REQUIRE(sorted==untouchedCopy);
+	}
+}
+
+TEST_CASE("Unsorted")
+{
+	SUBCASE("Length 2")
+	{
+		std::vector<int> data{28,-32};
+		std::vector<int> standardSort(data);
+		quicksort(data, 0, 1);
+		std::sort(standardSort.begin(), standardSort.end());
+		INFO("Vector has length 2");
+		REQUIRE(data.size()==2);
+		INFO("Vector is sorted");
+		REQUIRE(data==standardSort);
 	}
 }
 

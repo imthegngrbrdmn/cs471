@@ -10,11 +10,10 @@
 #define QUICKSORT_H
 
 #include <algorithm>	//std::swap
-#include <cstddef>		//std::size_t
 #include <vector>
 
-void quicksort(std::vector<int> data, std::size_t lo, std::size_t hi);
+void quicksort(std::vector<int> &data, int lo, int hi);
 
-void partition(std::vector<int> data, std::size_t lo, std::size_t hi);
+int partition(std::vector<int> &data, int lo, int hi);
 
 #endif //QUICKSORT_H
