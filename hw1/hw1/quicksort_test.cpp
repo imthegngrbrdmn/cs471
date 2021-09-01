@@ -80,6 +80,50 @@ TEST_CASE("Unsorted")
 		INFO("Vector is sorted");
 		REQUIRE(data==standardSort);
 	}
+	SUBCASE("Length 3")
+	{
+		std::vector<int> data{28,-32, 10};
+		std::vector<int> standardSort(data);
+		quicksort(data, 0, ((int)data.size())-1);
+		std::sort(standardSort.begin(), standardSort.end());
+		INFO("Vector has correct length");
+		REQUIRE(data.size()==standardSort.size());
+		INFO("Vector is sorted");
+		REQUIRE(data==standardSort);
+	}
+	SUBCASE("Length 5")
+	{
+		std::vector<int> data{28,-32, 10, 100, -512};
+		std::vector<int> standardSort(data);
+		quicksort(data, 0, ((int)data.size())-1);
+		std::sort(standardSort.begin(), standardSort.end());
+		INFO("Vector has correct length");
+		REQUIRE(data.size()==standardSort.size());
+		INFO("Vector is sorted");
+		REQUIRE(data==standardSort);
+	}
+	SUBCASE("Length 8")
+	{
+		std::vector<int> data{28,-32, 10, 689,-1,0,2,2};
+		std::vector<int> standardSort(data);
+		quicksort(data, 0, ((int)data.size())-1);
+		std::sort(standardSort.begin(), standardSort.end());
+		INFO("Vector has correct length");
+		REQUIRE(data.size()==standardSort.size());
+		INFO("Vector is sorted");
+		REQUIRE(data==standardSort);
+	}
+	SUBCASE("Length 13")
+	{
+		std::vector<int> data{28,-32, 10,2,3,4,-1,-5,8,10,-11,128};
+		std::vector<int> standardSort(data);
+		quicksort(data, 0, ((int)data.size())-1);
+		std::sort(standardSort.begin(), standardSort.end());
+		INFO("Vector has correct length");
+		REQUIRE(data.size()==standardSort.size());
+		INFO("Vector is sorted");
+		REQUIRE(data==standardSort);
+	}
 }
 
 //Run tests & show results
